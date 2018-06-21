@@ -1,0 +1,108 @@
+This meetup is the introduction to a multi-part progressive series that will demonstrate a modern microservices application stack from start to finish. We'll include platform, CI/CD, deployment, and application technologies. This is meant for developers and platform engineers either new to microservices or looking to get up to speed on current methods. Some of the technologies we'll touch on during the series are: Spinnaker, Kubernetes, Istio, Python, NodeJS, Go, and Loopback.
+
+- Title Slide
+
+- Who am I?  Who is Kenzan?
+
+- What are we going to talk about?
+  - Series, today is the intro
+  - Platforms & Infrastructure
+  - CI (Build) Tools
+  - CD (Deployment) Tools
+  - Application Technologies
+
+- Diagram - How it all fits together
+
+- Platforms & Infrastructure
+  - Gotta have an API (SSH is NOT an API)
+  - Gotta be automatable.
+  - Software Defined Networking (SDN) is a must have.
+  - Service Meshes (e.g. Istio) are good.
+  - Storage (usually block) is needed too.
+  - Examples
+    - Kubernetes (EKS, GKE, KOPS)
+    - Amazon EC2
+    - Google Cloud Compute
+    - OpenStack
+    - Ubuntu's MAAS
+    - ?? Audience participation ??
+
+- Continuous Delivery Tools
+  - Gotta have APIs (Seeing a theme yet?).
+  - Gotta be automatable (pipelines)
+  - Gotta have triggers (e.g. Upon successful build, deploy to the test environment)
+  - Pipeline Diagram
+  - Gotta have service discovery
+  - Gotta have health checks
+  - Integration & Canary testing happens here.
+  - Examples
+    - Spinnaker
+    - Titus
+    - AWS CodeDeploy, CodePipeline, CloudFormation
+    - Eureka, Consul, etcd, AWS LBs
+    - Terraform
+    - Ansible
+    - Chef & Puppet
+    - ?? Audience participation ??
+
+- Continuous Integration Tools
+  - Gotta have APIs.
+  - Gotta be automatable.
+  - Gotta have triggers (e.g. Upon commit to source repo, build project).
+  - Gotta have source storage / repositories.
+  - Artifact storage is a very nice to have, required for larger systems.
+  - Unit and Component (fixtured) testing happens here.
+  - "Pipeline Diagram"
+  - Examples
+    - Github, GitLab, Git
+    - Jenkins, TravisCI, GitLabCI, CircleCI
+    - AWS & GCP Built Ins
+    - Docker Repos
+    - Code Analysis (e.g. Linter)
+    - ?? Audience participation ??
+
+- Applications (Data Layer)
+  - Databases
+  - Deployments don't get cycled often
+  - Often ignored, but this is where the money (data) is.
+  - Disaster Recovery testing happens here.
+  - Examples
+    - NoSQL (e.g. Redis, MongoDB, CouchDB)
+    - *SQL (e.g. Postgres, MySQL, Maria, MSSQL, The 7+ Digit DBs)
+    - Queues
+    - Enterprise Service Buses (ESBs)
+    - ?? Audience participation ??
+
+- Applications (The MicroServices Themselves)
+  - Gotta have APIs
+  - Logic happens here.
+  - Usually try to be event driven (better efficiency)
+  - The Unix Paradigm: Do only one thing, but do it very well. (spinnaker example)
+  - 12 Factor App
+  - Use well defined interfaces, (Programming) language shouldn't matter
+  - Circuit Breaker Pattern (loopback, hystrix, etc)
+  - Other patterns ??
+    - Service Discovery
+    - Sidecars
+    - No configuration in artifacts
+  - Examples
+    - Swagger (OpenAPI ??)
+    - Python, Flask
+    - NodeJS, Loopback
+    - Go
+    - ?? Audience participation ??
+
+- Capstan Example Walkthrough
+  - Quicky the README
+  - Show Start
+  - Jump to pre existing
+  - Show Dashboards & App
+
+- Talks in the rest of the Series
+  - Platforms - Kubernetes, Istio (Istio presentation by externals)
+  - Application Development - Loopback, Languages, Patterns
+  - Continuous Integration - Build Systems, Tooling, Build Pipelines
+  - Continuous Deployment - Spinnaker, Eureka
+
+- Questions?
+  - You better ask some because I probably went fast and got things wrong.
