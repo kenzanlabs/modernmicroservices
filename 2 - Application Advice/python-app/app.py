@@ -42,7 +42,7 @@ class ServerClass(BaseHTTPRequestHandler):
         self.logger.info("Handling GET request")
         self._set_headers()
         # Grab a random base64 image from Redis
-        base64_image = redis_client.srandmember('catternauts')
+        base64_image = redis_client.srandmember('catternauts').decode('utf-8')
         # Insert image into HTML
         output_html = "<html><body><h1>Catternaut:</h1><img src=\"{}\"></img></body></html>".format(base64_image)
         # Send to client
