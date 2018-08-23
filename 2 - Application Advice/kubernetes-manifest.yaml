@@ -36,3 +36,45 @@ spec:
     port: 6379
     targetPort: 6379
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catternaut
+spec:
+  selector:
+    matchLabels:
+      app: catternaut
+      tier: frontend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: catternaut
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: catternaut
+        image: "dwilliams/2-python-app:latest"
+        env:
+        - name: LISTENER_PORT
+          value: "8080"
+        - name: REDIS_SERVER_HOSTNAME
+          value: "redis-server"
+        - name: REDIS_SERVER_PORT
+          value: "6379"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catternaut
+spec:
+  selector:
+    app: catternaut
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 8080
+    targetPort: 8080
+  type: LoadBalancer

@@ -44,7 +44,7 @@ class ServerClass(BaseHTTPRequestHandler):
         # Grab a random base64 image from Redis
         base64_image = redis_client.srandmember('catternauts')
         # Insert image into HTML
-        output_html = "<html><body><h1>Catternaut:</h1><img src=\"{}\"></img></body></html>".format(
+        output_html = "<html><body><h1>Catternaut:</h1><img src=\"{}\"></img></body></html>".format(base64_image)
         # Send to client
         self.logger.debug("GET Response: %s", output_html)
         self.wfile.write(output_html.encode('utf-8'))
